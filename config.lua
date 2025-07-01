@@ -3,25 +3,26 @@ Config = {}
 Config.DevMode = false -- Set to false on live servers
 
 Config.lang = {
-    PromptText = "Press",
-    NotAllowed = "You don't have the right job",
-    GradeNotalowed = "You don't have the right grade",
-    Notneardoor = "You are not near a door or this door can't be lockpicked",
-    Alreadyopen = "The door is already open",
-    HackAttempt = "Player %s (ID: %d) was not close to the door, possible hack attempt",
-    Opened = "Opened",
-    Closed = "Closed",
-    Open = "Open",
-    Close = "Close",
+    PromptText = "Presiona",
+    NotAllowed = "No tienes el trabajo adecuado",
+    GradeNotalowed = "No tienes el rango adecuado",
+    Notneardoor = "No estás cerca de una puerta o esta puerta no se puede forzar",
+    Alreadyopen = "La puerta ya está abierta",
+    HackAttempt = "El jugador %s (ID: %d) no estaba cerca de la puerta, posible intento de hackeo",
+    Opened = "Abierta",
+    Closed = "Cerrada",
+    Open = "Abrir",
+    Close = "Cerrar",
     Alerts = {
-        PoliceAlertTitle = "Police Alert",
-        PoliceAlertMessage = "Someone lockpicked a door",
+        PoliceAlertTitle = "Alerta Policial",
+        PoliceAlertMessage = "Alguien forzó una puerta",
         PoliceAlertIcon = "inventory_items",
         PoliceAlertPicture = "provision_sheriff_star",
         PoliceAlertColor = "COLOR_WHITE",
         PoliceAlertDuration = 5000
     }
 }
+
 
 Config.InteractionDistance = 1.5 -- Distance of interaction with the door
 
