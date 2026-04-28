@@ -1,4 +1,5 @@
-Config = {}
+---@class vorp_doorlocks_config
+local Config = {}
 
 Config.DevMode = false -- Set to false on live servers
 
@@ -33,82 +34,35 @@ Config.AlertProbability = 0.5    -- 0.5 = 50% chance of alerting police if Confi
 -- assing permissions and avoid code repetition it uses jobs and grades
 Config.Permissions = {
     -- police
-    ValSheriff = {      -- Name must match config.Doors.Perms can be any name it doesnt matter as long is unique in here
-        ValSheriff = 2, -- job name + grade if grade is 0 then anything above 0 has permissions if frade is 2 then anything above 2 has permissions
+    PoliceDoors = { -- Name must match config.Doors.Perms can be any name it doesnt matter as long is unique in here
+        Police = 2, -- job name + grade if grade is 0 then anything above 0 has permissions if frade is 2 then anything above 2 has permissions
         -- Can add as many jobs as you wish
-    },
-    BWPolice = {
-        BWPolice = 0,
-    },
-    RhoSheriff = {
-        RhoSheriff = 0,
-    },
-    SDPolice = {
-        SDPolice = 2,
-    },
-    StrSheriff = {
-        StrSheriff = 2,
-    },
-    ArmSheriff = {
-        ArmSheriff = 0,
     },
     -- medic
     Doctor = {
         doctor = 0,
-        headdoctor = 0,
-        shaman = 0,
     },
     -- fort
     FortWallace = {
-        ValSheriff = 0,
-        BWPolice = 0,
-        RhoSheriff = 0,
-        SDPolice = 0,
-        StrSheriff = 0,
-        ArmSheriff = 0,
+        Police = 1
     },
     -- prison
     Sisika = {
-        ValSheriff = 0,
-        BWPolice = 0,
-        RhoSheriff = 0,
-        SDPolice = 0,
-        StrSheriff = 0,
-        ArmSheriff = 0,
+        Police = 1
     },
 
     ---- Bank Doors Permission ----
     ValBank = {
-        ValSheriff = 0,
-        BWPolice = 0,
-        RhoSheriff = 0,
-        SDPolice = 0,
-        StrSheriff = 0,
-        ArmSheriff = 0,
+        Police = 1
     },
     BWBank = {
-        ValSheriff = 0,
-        BWPolice = 0,
-        RhoSheriff = 0,
-        SDPolice = 0,
-        StrSheriff = 0,
-        ArmSheriff = 0,
+        Police = 1
     },
     SDBank = {
-        ValSheriff = 0,
-        BWPolice = 0,
-        RhoSheriff = 0,
-        SDPolice = 0,
-        StrSheriff = 0,
-        ArmSheriff = 0,
+        Police = 1
     },
     RhoBank = {
-        ValSheriff = 0,
-        BWPolice = 0,
-        RhoSheriff = 0,
-        SDPolice = 0,
-        StrSheriff = 0,
-        ArmSheriff = 0,
+        Police = 1
     },
 
     -- Add more here to make unique door permissions
@@ -141,7 +95,7 @@ Config.Doors = {
         Pos = vector3(-276.01260375977, 802.59106445313, 118.41165161133), -- Door Position
         Name = "Front Door",                                               -- Door Name
         DoorState = 0,                                                     -- Default door State 0 is open 1 is close
-        Permissions = Config.Permissions.ValSheriff,                       -- Will use the jobs for this location if false everyone can open and close doors
+        Permissions = Config.Permissions.PoliceDoors,                      -- Will use the jobs for this location if false everyone can open and close doors
         BreakAble = Config.Lockpicks.location.lockpick,                    -- Will use the lockpick item for this location, if false it will not use lockpick and cant be lockpicked
         Difficulty = 3,                                                    -- Lockpick Difficulty, how many tries
         Alert = true,
@@ -152,7 +106,7 @@ Config.Doors = {
         Pos = vector3(-275.84475708008, 812.02703857422, 118.41483306885),
         Name = "Back Door",
         DoorState = 0,
-        Permissions = Config.Permissions.ValSheriff,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -162,7 +116,7 @@ Config.Doors = {
         Pos = vector3(-270.76641845703, 810.02648925781, 118.39580535889),
         Name = "Back Jail Door",
         DoorState = 1,
-        Permissions = Config.Permissions.ValSheriff,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -171,7 +125,7 @@ Config.Doors = {
         Pos = vector3(-272.05209350586, 808.25830078125, 118.36851501465),
         Name = "Door 1",
         DoorState = 1,
-        Permissions = Config.Permissions.ValSheriff,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -180,7 +134,7 @@ Config.Doors = {
         Pos = vector3(-273.46432495117, 809.96606445313, 118.36823272705),
         Name = "Door 2",
         DoorState = 1,
-        Permissions = Config.Permissions.ValSheriff,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -189,7 +143,7 @@ Config.Doors = {
         Pos = vector3(-275.02328491211, 808.27404785156, 118.36856842041),
         Name = "Door 3",
         DoorState = 1,
-        Permissions = Config.Permissions.ValSheriff,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -240,7 +194,7 @@ Config.Doors = {
         Pos = vector3(-757.0423583984375, -1269.92333984375, 43.06862640380859),
         Name = "Front Door 1 (Left)",
         DoorState = 1,
-        Permissions = Config.Permissions.BWPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -250,7 +204,7 @@ Config.Doors = {
         Pos = vector3(-757.0423583984375, -1268.4853515625, 43.06859970092773),
         Name = "Front Door 1 (Right)",
         DoorState = 1,
-        Permissions = Config.Permissions.BWPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -260,7 +214,7 @@ Config.Doors = {
         Pos = vector3(-769.1376342773438, -1268.745361328125, 43.04003143310547),
         Name = "Back Door",
         DoorState = 1,
-        Permissions = Config.Permissions.BWPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -270,7 +224,7 @@ Config.Doors = {
         Pos = vector3(-765.8612060546875, -1264.703857421875, 43.02326965332031),
         Name = "Cell Door 1",
         DoorState = 1,
-        Permissions = Config.Permissions.BWPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -279,7 +233,7 @@ Config.Doors = {
         Pos = vector3(-763.5278930664062, -1262.4609375, 43.02326583862305),
         Name = "Cell Door 2",
         DoorState = 1,
-        Permissions = Config.Permissions.BWPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -384,7 +338,7 @@ Config.Doors = {
         Pos = vector3(2493.37255859375, -1305.68701171875, 47.95257186889648),
         Name = "Front Door 1 (Left)",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -394,7 +348,7 @@ Config.Doors = {
         Pos = vector3(2493.37255859375, -1307.41845703125, 47.95257186889648),
         Name = "Front Door 1 (Right)",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -404,7 +358,7 @@ Config.Doors = {
         Pos = vector3(2493.37255859375, -1310.2252197265625, 47.95257186889648),
         Name = "Front Door 2 (Left)",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -414,7 +368,7 @@ Config.Doors = {
         Pos = vector3(2493.37255859375, -1311.95654296875, 47.95257186889648),
         Name = "Front Door 2 (Right)",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -424,7 +378,7 @@ Config.Doors = {
         Pos = vector3(2495.953369140625, -1317.28271484375, 47.95257186889648),
         Name = "Front Door 3 (Left)",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -434,7 +388,7 @@ Config.Doors = {
         Pos = vector3(2497.684814453125, -1317.28271484375, 47.95257186889648),
         Name = "Front Door 3 (Right)",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -444,7 +398,7 @@ Config.Doors = {
         Pos = vector3(2506.606201171875, -1317.2796630859375, 47.95257186889648),
         Name = "Front Door 4 (Left)",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -454,7 +408,7 @@ Config.Doors = {
         Pos = vector3(2508.337646484375, -1317.2796630859375, 47.95257186889648),
         Name = "Front Door 4 (Right)",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -464,7 +418,7 @@ Config.Doors = {
         Pos = vector3(2516.144287109375, -1309.9276123046875, 47.95257186889648),
         Name = "Back Door 1 (Left)",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -474,7 +428,7 @@ Config.Doors = {
         Pos = vector3(2516.14453125, -1307.724853515625, 47.95257186889648),
         Name = "Back Door 1 (Right)",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -486,7 +440,7 @@ Config.Doors = {
         Pos = vector3(2510.90771484375, -1305.41162109375, 47.95716857910156),
         Name = "In Door 1 (Left)",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -495,7 +449,7 @@ Config.Doors = {
         Pos = vector3(2510.90771484375, -1307.141357421875, 47.95716857910156),
         Name = "In Door 2 (Right)",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -504,7 +458,7 @@ Config.Doors = {
         Pos = vector3(2510.90771484375, -1310.4840087890625, 47.95257186889648),
         Name = "In Door 3 (Left)",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -513,7 +467,7 @@ Config.Doors = {
         Pos = vector3(2510.90771484375, -1312.2154541015625, 47.95257186889648),
         Name = "In Door 4 (Right)",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -525,7 +479,7 @@ Config.Doors = {
         Pos = vector3(2503.638671875, -1309.8763427734375, 47.95327377319336),
         Name = "Cell Door 1",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -534,7 +488,7 @@ Config.Doors = {
         Pos = vector3(2499.752197265625, -1309.8763427734375, 47.95327377319336),
         Name = "Cell Door 2",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -543,7 +497,7 @@ Config.Doors = {
         Pos = vector3(2498.5, -1307.85595703125, 47.95327377319336),
         Name = "Cell Door 3",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -552,7 +506,7 @@ Config.Doors = {
         Pos = vector3(2502.427734375, -1307.85498046875, 47.95326995849609),
         Name = "Cell Door 4",
         DoorState = 1,
-        Permissions = Config.Permissions.SDPolice,
+        Permissions = Config.Permissions.PoliceDoors,
         BreakAble = Config.Lockpicks.location.lockpick,
         Difficulty = 3,
         Alert = true,
@@ -1023,5 +977,188 @@ Config.Doors = {
         DoubleDoor = 3984556459, -- if is double door just add the door next to it here so it open both at the same time
     },
 
-    -- ADD MORE DOORS HERE
+    -- HOUSING DOORS to work with vorp_housing these doors have permissions set in vorp_housing config
+    -- Widow Rock House 1
+    [4070066247] = {
+        Pos = vector3(-398.64300537109, 1722.3649902344, 215.42929077148),
+        Name = "Front Door",
+        DoorState = 1,
+    },
+    [3444471262] = {
+        Pos = vector3(-389.57995605469, 1730.2189941406, 215.41470336914),
+        Name = "Side Door",
+        DoorState = 1,
+    },
+    -- Cabin at Braithwaite Manor
+    [3921310299] = {
+        Pos = vector3(1115.8677978516, -1989.7192382813, 54.376285552979),
+        Name = "Front Door",
+        DoorState = 1,
+    },
+    -- Cabin at Lake O'Creagh's
+    [868379185]  = {
+        Pos = vector3(1697.4683837891, 1508.2376708984, 146.8824005127),
+        Name = "Front Door",
+        DoorState = 1,
+    },
+    [640077562]  = {
+        Pos = vector3(1702.7976074219, 1514.3333740234, 146.87799072266),
+        Name = "Back Door",
+        DoorState = 1,
+    },
+    -- Cabin on the Southfield Plains
+    [3929468747] = {
+        Pos = vector3(1136.9982910156, -977.45391845703, 68.385864257813),
+        Name = "Front Door",
+        DoorState = 1,
+    },
+    -- Cabin in the Roanoke Valley
+    [1574473390] = {
+        Pos = vector3(2628.2214355469, 1694.3289794922, 114.66619110107),
+        Name = "Front Door",
+        DoorState = 1,
+    },
+    -- House in Rhodes
+    [1485561723] = {
+        Pos = vector3(1114.6071777344, -1305.0754394531, 65.41828918457),
+        Name = "Front Door",
+        DoorState = 1,
+    },
+    [4276865168] = {
+        Pos = vector3(1115.0217285156, -1302.5012207031, 65.418411254883),
+        Name = "Room 1 Door",
+        DoorState = 1,
+    },
+    [1532575796] = {
+        Pos = vector3(1111.935546875, -1303.3283691406, 65.418014526367),
+        Name = "Room 2 Door",
+        DoorState = 1,
+    },
+    [1151226872] = {
+        Pos = vector3(1114.7044677734, -1301.3328857422, 65.417953491211),
+        Name = "Room 3 Door",
+        DoorState = 1,
+    },
+    [3544613794] = {
+        Pos = vector3(1111.4659423828, -1297.5782470703, 65.41828918457),
+        Name = "Back Door",
+        DoorState = 1,
+    },
+    -- House in the snow town
+    [2183007198] = {
+        Pos = vector3(-1347.9483642578, 2435.2036132813, 307.49612426758),
+        Name = "Front Door",
+        DoorState = 1,
+    },
+    [4288310487] = {
+        Pos = vector3(-1348.2998046875, 2447.0854492188, 307.48056030273),
+        Name = "Back Door",
+        DoorState = 1,
+    },
+    -- House in the snow
+    [872775928]  = {
+        Pos = vector3(-556.41680908203, 2698.8635253906, 319.38018798828),
+        Name = "Front Door",
+        DoorState = 1,
+    },
+    [2385374047] = {
+        Pos = vector3(-557.96398925781, 2708.9880371094, 319.43182373047),
+        Name = "Back Door",
+        DoorState = 1,
+    },
+    -- House in Valentine
+    [4123766266] = {
+        Pos = vector3(778.96936035156, 849.52600097656, 117.91557312012),
+        Name = "Front Door",
+        DoorState = 1,
+    },
+    [1002666274] = {
+        Pos = vector3(773.73126220703, 847.73370361328, 117.91557312012),
+        Name = "Room 1 Door",
+        DoorState = 1,
+    },
+    [417362979]  = {
+        Pos = vector3(772.65289306641, 841.26782226563, 117.91557312012),
+        Name = "Back Door",
+        DoorState = 1,
+    },
+    -- Cabin on the Dakota River
+    [1434140379] = {
+        Pos = vector3(-692.42681884766, 1042.9229736328, 134.02406311035),
+        Name = "Front Door",
+        DoorState = 1,
+    },
+    -- House on the Dakota River
+    [1189146288] = {
+        Pos = vector3(-615.93969726563, -27.086599349976, 84.997604370117),
+        Name = "Front Door",
+        DoorState = 1,
+    },
+    [365712512]  = {
+        Pos = vector3(-611.59692382813, -31.233404159546, 84.997619628906),
+        Name = "Room 1 Door",
+        DoorState = 1,
+    },
+    [138361190]  = {
+        Pos = vector3(-610.15533447266, -30.702325820923, 84.997619628906),
+        Name = "Room 2 Door",
+        DoorState = 1,
+    },
+    [906448125]  = {
+        Pos = vector3(-608.73846435547, -26.612947463989, 84.997634887695),
+        Name = "Back Door",
+        DoorState = 1,
+    },
+    -- Big Valley Farm House
+    [1535511805] = {
+        Pos = vector3(-2590.8410644531, 457.83801269531, 146.01396179199),
+        Name = "Front Door",
+        DoorState = 1,
+    },
+    [2395304827] = {
+        Pos = vector3(-2597.7019042969, 457.83837890625, 146.01396179199),
+        Name = "Back Door",
+        DoorState = 1,
+    },
+    -- House on the Little Creek River
+    [2212914984] = {
+        Pos = vector3(-2182.5109863281, 716.46356201172, 121.62875366211),
+        Name = "Front Door",
+        DoorState = 1,
+    },
+    [2670400201] = {
+        Pos = vector3(-2176.849609375, 724.85601806641, 121.61985015869),
+        Name = "Room 1 Door",
+        DoorState = 1,
+    },
+    -- Farm House on the outskirts of Blackwater
+    [1606546482] = {
+        Pos = vector3(-1646.2409667969, -1367.1358642578, 83.465660095215),
+        Name = "Front Door",
+        DoorState = 1,
+    },
+    [1309495497] = {
+        Pos = vector3(-1643.0651855469, -1365.2613525391, 83.402526855469),
+        Name = "Room 1 Door",
+        DoorState = 1,
+    },
+    [1063695460] = {
+        Pos = vector3(-1637.3913574219, -1355.4940185547, 83.402557373047),
+        Name = "Room 2 Door",
+        DoorState = 1,
+    },
+    [1731691513] = {
+        Pos = vector3(-1644.9805908203, -1363.3253173828, 83.402526855469),
+        Name = "Bathroom Door",
+        DoorState = 1,
+    },
+    [2310818050] = {
+        Pos = vector3(-1637.7155761719, -1352.6480712891, 83.466453552246),
+        Name = "Back Door",
+        DoorState = 1,
+    },
+}
+
+return {
+    CONFIG = Config,
 }
